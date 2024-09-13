@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<title>Marc Dewasrami</title>
+	</header>
+	<body>
+	<h2>MARC Dewasrani</h2><h2>UPNVJ</h2>
+	<div ng-app="geotagApp" ng-controller="geotagCtrl" id="geotag_info" style="overflow:auto;height:65px">
+		<table>
+			<thead>
+				<tr>
+				  <th>DAY</th>
+				  <th>DATE</th>
+				  <th>TIME</th>
+				  <th>COORDINATE</th>
+				  <th>SOG(knot)</th>
+				  <th>SOG(km/j)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in data">
+				<td>{{ x.DAY }}</td>
+				<td>{{ x.DATE }}</td>
+				<td>{{ x.TIME }}</td>
+				<td>{{ x.COORDINATE }}</td>
+				<td>{{ x.SOG }}</td>
+				<td>{{ x.SOG2 }}</td>
+				<td>{{ x.COG }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		
+		<div></div><div></div>
+
+	</div>
+	
+	<script src="./App.js"></script>
+	</body>
+</html>
