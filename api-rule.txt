@@ -22,9 +22,9 @@
    file1=<value dari file yang ditransfer>
 
 3. api/insert-surfacewater-pict
-api untuk mengirim gambar ke folder img/surface-water/
-http method: POST
-Type : Multipart
-format multipart:
-apiKey=<value>
-file1=<value dari file yang ditransfer> 
+   api untuk mengirim gambar ke folder img/surface-water/
+   http method: POST
+   Type : Multipart
+   format multipart:
+   apiKey=<value>
+   file1=<value dari file yang ditransfer> 
