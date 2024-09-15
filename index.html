@@ -3,13 +3,41 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 	<title>Marc Dewasrami</title>
-	</header>
-	<body>
-	<h2>MARC Dewasrani</h2><h2>UPNVJ</h2>
-	<div ng-app="geotagApp" ng-controller="geotagCtrl" id="geotag_info" style="overflow:auto;height:65px">
-		<table>
+</header>
+<body class="bg-light">
+	<!--nav bar-->
+	<nav class="navbar navbar-expand-sm bg-secondary sticky-top border border-dark">
+	<div class="container-fluid">
+			
+		<div class="col-sm-6"><h2 class="text-start">Nama Tim: MARC Dewasrani</h2></div>
+		<div class="col-sm-6"><h2 class="text-end">PT: UPNVJ</h2></div>
+	
+	</div>	
+	</nav>
+
+	<div class="container-fluid">
+	
+	<!--map dan kamera-->
+	<div class="row border border-dark" style="height:500px"><!--note faiq: tambahin angular buat rubah lintasan-->
+
+		<!--note faiq: rubah nilai L jadi jenis lintasa-->
+		<h5>Lintasan: {{ L }}</h5>
+
+	</div>
+	
+	<!--geotag-->
+	<div ng-app="geotagApp" ng-controller="geotagCtrl" style="height:500px" class="row border border-dark">
+		<div class="row" style="height:5%">
+			<h5>geotag: </h5>
+
+			<!--note faiq: tambahin kamera dan map trajectory di col berbeda-->
+		</div>
+		<div class="row" style="overflow:auto;height:90%">
+		<div class="col-sm-12">
+			<table class="table table-bordered">
 			<thead>
 				<tr>
 				  <th>DAY</th>
@@ -18,6 +46,7 @@
 				  <th>COORDINATE</th>
 				  <th>SOG(knot)</th>
 				  <th>SOG(km/j)</th>
+				  <th>COG</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,20 +54,39 @@
 				<td>{{ x.DAY }}</td>
 				<td>{{ x.DATE }}</td>
 				<td>{{ x.TIME }}</td>
-				<td>{{ x.COORDINATE }}</td>
+				<td>{{ x.COORDINATE }}</td><!--note faiq: rubah satuin nilai coordinate-->
 				<td>{{ x.SOG }}</td>
 				<td>{{ x.SOG2 }}</td>
 				<td>{{ x.COG }}</td>
 				</tr>
 			</tbody>
-		</table>
+			</table>
+		</div>
+		</div>
 	</div>
-	<div>
+	
+	<!--hasil gambar-->
+	<div class="row border border-dark" style="height:500px">
+	
+		<!--note fai: tambahin gambar, jadiin kedua div column-->
+		<div class"row" style="height:5%">
+			<h5>Hasil Gambar:</h5>
+		</div>
 		
-		<div></div><div></div>
+		<div class="row" style="height:90%">
+		<div class="col text-center">
+			<img src="img/surface-water/surface-water.jpg" alt="foto bawah air" class="img-fluid" width="90%" height="80%">
+			<p>surface</p>
+		</div>
+		<div class="col text-center">
+			<img src="img/under-water/under-water.jpg" alt="foto bawah air" class="img-fluid" width="90%">
+			<p>under</P>
+		</div>
+		</div>`
 
+	</div>
 	</div>
 	
 	<script src="./App.js"></script>
-	</body>
+</body>
 </html>
