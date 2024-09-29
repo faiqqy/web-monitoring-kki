@@ -1,38 +1,22 @@
 <?php
-//ini_set('display_errors', 0);
-header('Access-Control-Allow-Origin: *');
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "test";
+class Database {
+    private $host = "localhost";
+    private $db_name = "api_database"; // ganti sesuai nama database kamu
+    private $username = "root"; // default MySQL user di XAMPP adalah root
+    private $password = ""; // default MySQL password di XAMPP kosong
+    public $conn;
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    public function getConnection() {
+        $this->conn = null;
 
-$sql ="select * from geotag";
-$result= $conn->query($sql);
+        try {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn->exec("set names utf8");
+        } catch (PDOException $exception) {
+            echo "Connection error: " . $exception->getMessage();
+        }
 
-//membuat variabel untuk dimasukan data
-$infoGeotag=new stdClass();
-$infoGeotag->records=array();
-$i = 0;
-
-//memasuakan data info geotag ke object geotag
-while($row = $result->fetch_assoc()){
-	
-	$infoGeotag->records[$i]=new stdClass();
-	$infoGeotag->records[$i]->DAY=$row["DAY"];
-	$infoGeotag->records[$i]->DATE=$row["DATE"];
-	$infoGeotag->records[$i]->TIME=$row["TIME"];
-	$infoGeotag->records[$i]->COORDINATE=$row["COORDINATE"];
-	$infoGeotag->records[$i]->SOG=$row["SOG"];
-	$infoGeotag->records[$i]->SOG2=$row["sog2"];
-	$infoGeotag->records[$i]->COG=$row["COG"];
-	$i++;
-	
+        return $this->conn;
+    }
 }
-
-    echo json_encode($infoGeotag);
-
 ?>
-

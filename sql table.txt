@@ -2,7 +2,7 @@
 
 CREATE DATABASE KKI_ATSV
 
-CREATE TABLE GEOTAG {
+CREATE TABLE geotag (
 
 ID int,
 DAY  varchar(255),
@@ -12,7 +12,8 @@ COORDINATE1 int,
 COORDINATE2 int,
 SOG1 int,
 SOG2 int,
-COG int
+COG int,
+PRIMARY KEY (ID)
 
 
-}
+);

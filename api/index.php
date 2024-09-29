@@ -39,11 +39,11 @@ case 'insert-geotag':		//api untuk memasukan data di sql
 		if(!(apiKey_check($data->apiKey))){echo "api salah"; break;}
 		
 		// connect ke database
-		$db = new database("localhost", "root", "","test");
+		$db = new database("localhost", "root", "","KKI_ASV");
 		
 		//memuat querry sql
-		$sql = 'INSERT INTO geotag(DATE, TIME, DAY, COORDINATE, SOG, SOG2, COG) 
-			VALUE ("'.$data->DATE.'","'.$data->TIME.'","'.$data->DAY.'","'.$data->COORDINATE.'","'.$data->SOG.'","'.$data->SOG2.'","'.$data->COG.'")';
+		$sql = 'INSERT INTO geotag(DATE, TIME, DAY, COORDINATE1, COORDINATE2, SOG, SOG2, COG) 
+			VALUE ("'.$data->DATE.'","'.$data->TIME.'","'.$data->DAY.'","'.$data->COORDINATE1.'","'.$data->COORDINATE2.'","'.$data->SOG1.'","'.$data->SOG2.'","'.$data->COG.'")';
 
 		// menyambungkan database
 		$conn = $db->get_connect();
